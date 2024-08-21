@@ -1,0 +1,6 @@
+com\yusufcakal\userapp\UserAppApplication.class
+com\yusufcakal\userapp\SpringDataRestCustomization.class
+com\yusufcakal\userapp\model\User.class
+com\yusufcakal\userapp\WebConfig.class
+com\yusufcakal\userapp\repository\UserRepository.class
+com\yusufcakal\userapp\controller\UserController.class
