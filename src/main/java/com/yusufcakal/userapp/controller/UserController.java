@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-@CrossOrigin(maxAge = 3600)
+@CrossOrigin(maxAge = 3600, origins = "*")
 @RestController
 @RequestMapping("/api")
 public class UserController {
@@ -16,13 +16,13 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @GetMapping("/users")
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @GetMapping("/users/{id}")
     public ResponseEntity<User> getUserById(@PathVariable(value = "id") Long id) {
         User user = userRepository.findOne(id);
@@ -32,13 +32,13 @@ public class UserController {
         return ResponseEntity.ok().body(user);
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @PostMapping("/users")
     public User createUser(@Valid @RequestBody User user) {
         return userRepository.save(user);
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @PutMapping("/users/{id}")
     public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long id, @Valid @RequestBody User userDetails) {
         User user = userRepository.findOne(id);
@@ -52,7 +52,7 @@ public class UserController {
         return ResponseEntity.ok(updatedUser);
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/users/{id}")
     public ResponseEntity<User> deleteNote(@PathVariable(value = "id") Long id) {
         User user = userRepository.findOne(id);
